@@ -1,3 +1,4 @@
+
 export enum QuestionCategory {
   GENERAL = "General Rules",
   SIGNS = "Road Signs",
@@ -33,6 +34,14 @@ export interface QuizState {
   error: string | null;
 }
 
+export interface SavedQuizState {
+  questions: Question[];
+  category: QuestionCategory;
+  currentIndex: number;
+  score: number;
+  answerHistory: number[];
+}
+
 export enum Screen {
   START = 'START',
   QUIZ = 'QUIZ',
@@ -58,4 +67,20 @@ export interface StudyGuide {
   introduction: string;
   keyRules: StudySection[];
   commonSigns: RoadSign[];
+}
+
+// RPG Progression Types
+export interface Rank {
+  name: string;
+  minXP: number;
+  icon: string;
+  color: string;
+}
+
+export interface UserProgress {
+  xp: number;
+  level: number;
+  currentRank: Rank;
+  nextRank: Rank | null;
+  progressToNext: number; // Percentage 0-100
 }

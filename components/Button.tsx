@@ -20,13 +20,14 @@ export const Button: React.FC<ButtonProps> = ({
   disableSound = false,
   ...props 
 }) => {
-  const baseStyles = "px-6 py-3 rounded-lg font-semibold transition-all duration-200 flex items-center justify-center gap-2 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed active:scale-95";
+  // Added hover:scale-[1.02] for subtle feedback
+  const baseStyles = "px-6 py-3 rounded-lg font-semibold transition-all duration-200 flex items-center justify-center gap-2 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed active:scale-95 hover:scale-[1.02]";
   
   const variants = {
-    primary: "bg-blue-600 hover:bg-blue-700 text-white focus:ring-blue-500 shadow-md hover:shadow-lg",
-    secondary: "bg-slate-800 hover:bg-slate-900 text-white focus:ring-slate-600 shadow-md",
-    outline: "border-2 border-slate-300 hover:border-blue-500 hover:text-blue-600 text-slate-600 bg-transparent",
-    danger: "bg-red-600 hover:bg-red-700 text-white focus:ring-red-500"
+    primary: "bg-blue-600 hover:bg-blue-700 text-white focus:ring-blue-500 shadow-md hover:shadow-lg border-transparent",
+    secondary: "bg-slate-800 dark:bg-slate-700 hover:bg-slate-900 dark:hover:bg-slate-600 text-white focus:ring-slate-600 shadow-md border-transparent",
+    outline: "border-2 border-slate-300 dark:border-slate-600 hover:border-blue-500 dark:hover:border-blue-400 hover:text-blue-600 dark:hover:text-blue-400 text-slate-600 dark:text-slate-300 bg-transparent",
+    danger: "bg-red-600 hover:bg-red-700 text-white focus:ring-red-500 border-transparent"
   };
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
